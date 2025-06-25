@@ -39,28 +39,32 @@ To provide a unified abstraction over different scheduler implementations, with 
 ---
 
 
-Demo Routes
+### Demo Routes
 
 Laravel Scheduler Adapter
 Schedules and runs the task using Laravel's built-in scheduler:
 
-GET /demo-scheduler-laravel
+`GET /demo-scheduler-laravel`
 
 Crunz Scheduler Adapter
 Schedules and runs the task using the Crunz-style adapter with our own logic:
 
-GET /demo-scheduler-crunz
+`GET /demo-scheduler-crunz`
 
-Mutex Implementation
+### Mutex Implementation
+
 The custom DatabaseMutex stores locks in a dedicated table (mutex_locks) with an expiration timestamp.
 This avoids issues with Laravel's native cache-based mutex in distributed or multi-process environments.
 
 To customize or extend the mutex logic, simply implement the MutexInterface.
 
-Cron Expression Helper
+### Cron Expression Helper
+
 CronHelper provides reusable static methods for common cron expressions:
 
-CronHelper::everyMinute();         // '* * * * *'
-CronHelper::dailyAt('07:30');      // '30 7 * * *'
-CronHelper::everyWeekdayAt('09:00');
+`CronHelper::everyMinute();         // '* * * * *'`
+
+`CronHelper::dailyAt('07:30');      // '30 7 * * *'`
+
+`CronHelper::everyWeekdayAt('09:00');`
 
