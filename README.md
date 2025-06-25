@@ -18,21 +18,23 @@ To provide a unified abstraction over different scheduler implementations, with 
 
 ## Project Structure
 
-app/
-└── Scheduler/
-├── Interfaces/
-│   ├── SchedulerInterface.php
-│   ├── TaskInterface.php
-│   └── MutexInterface.php
-├── Adapters/
-│   ├── LaravelSchedulerAdapter.php
-│   └── CrunzSchedulerAdapter.php
-├── Mutexes/
-│   └── DatabaseMutex.php
-├── Tasks/
-│   └── SendBirthdayCardsTask.php
-└── Helpers/
-└── CronHelper.php
+<pre lang="text"><code>
+└── app/ 
+    └── Scheduler/ 
+        ├── Interfaces/ 
+            │ ├── SchedulerInterface.php 
+            │ ├── TaskInterface.php 
+            │ └── MutexInterface.php 
+        ├── Adapters/ 
+            │ ├── LaravelSchedulerAdapter.php 
+            │ └── CrunzSchedulerAdapter.php 
+        ├── Mutexes/ 
+            │ └── DatabaseMutex.php 
+        ├── Tasks/ 
+            │ └── SendBirthdayCardsTask.php 
+        └── Helpers/ 
+            └── CronHelper.php 
+</code></pre>
 
 ---
 
