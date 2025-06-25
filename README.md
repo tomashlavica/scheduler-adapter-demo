@@ -51,6 +51,26 @@ Schedules and runs the task using the Crunz-style adapter with our own logic:
 
 `GET /demo-scheduler-crunz`
 
+Examples of routing can be found in `routes/web.php`:
+
+```
+Route::get('/demo-scheduler-laravel', function () {
+$mutex = new DatabaseMutex();
+
+    $scheduler = new LaravelSchedulerAdapter(App::make(Schedule::class), $mutex);
+    $task = new SendBirthdayCardsTask();
+    // scheduled only task
+    // $scheduler->schedule($task, CronHelper::dailyAt('09:00'));
+
+    // scheduled task to run now
+    $scheduler->schedule($task, CronHelper::everyMinute());
+
+    $scheduler->runDueTasks();
+
+    return 'Laravel scheduler demo done';
+});
+```
+
 ### Mutex Implementation
 
 The custom DatabaseMutex stores locks in a dedicated table (mutex_locks) with an expiration timestamp.
